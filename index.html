@@ -1,0 +1,331 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conversación - Transcripción</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 20px;
+                min-height: 100vh;
+            }
+            
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                overflow: hidden;
+            }
+            
+            .header {
+                background: #4a5568;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+            
+            .header p {
+                font-size: 14px;
+                opacity: 0.9;
+            }
+            
+            .chat-container {
+                padding: 20px;
+                max-height: 600px;
+                overflow-y: auto;
+                background: #f7fafc;
+            }
+            
+            .message {
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: column;
+                animation: fadeIn 0.3s ease-in;
+            }
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .message.right {
+                align-items: flex-end;
+            }
+            
+            .message.left {
+                align-items: flex-start;
+            }
+            
+            .message-header {
+                font-size: 12px;
+                color: #718096;
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+            
+            .message-bubble {
+                max-width: 70%;
+                padding: 12px 16px;
+                border-radius: 18px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                word-wrap: break-word;
+            }
+            
+            .timestamp {
+                font-size: 10px;
+                color: #a0aec0;
+                margin-top: 5px;
+            }
+            
+            .cliente-bubble {
+                background-color: #DCF8C6;
+                border-bottom-right-radius: 4px;
+            }
+            
+            .asesor-bubble {
+                background-color: #E3F2FD;
+                border-bottom-left-radius: 4px;
+            }
+            
+            .otro-bubble {
+                background-color: #FFF9C4;
+                border-bottom-left-radius: 4px;
+            }
+            
+            .legend {
+                padding: 15px 20px;
+                background: #edf2f7;
+                border-top: 1px solid #e2e8f0;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 13px;
+            }
+            
+            .legend-color {
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+            
+            /* Scrollbar personalizada */
+            .chat-container::-webkit-scrollbar {
+                width: 8px;
+            }
+            
+            .chat-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            
+            .chat-container::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 4px;
+            }
+            
+            .chat-container::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Transcripción de Conversación</h1>
+                <p>Llamada telefónica - BTG Pactual</p>
+            </div>
+            
+            <div class="chat-container">
+                
+                <div class="message right">
+                    <div class="message-header">Juanita (Cliente)</div>
+                    <div class="message-bubble cliente-bubble">
+                        Juanita, ¿cómo estás?
+                        <div class="timestamp">00:00</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Habla Pepita Perez de BTG Pactual, ¿cómo te ha ido?
+                        <div class="timestamp">00:04</div>
+                    </div>
+                </div>
+        
+
+                <div class="message right">
+                    <div class="message-header">Juanita (Cliente)</div>
+                    <div class="message-bubble cliente-bubble">
+                        Muy bien, muchas gracias, ¿cómo has estado?
+                        <div class="timestamp">00:08</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Todo muy bien, gracias.
+                        <div class="timestamp">00:09</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Juanita, voy a llamar a Juanito de Sociedad Portuaria Palermo para que esté en la línea porque tenemos que hacer la monetización de 18.549 dólares que llegaron a nombre del patrimonio autónomo, flujos PSP.
+                        <div class="timestamp">00:11</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Tradicionalmente lo que hacemos es que él está en la línea, yo cierro contigo, pero él da su ok, pues como para que a ti también te quede trazabilidad de que él está de acuerdo con lo que tú estás cerrando.
+                        <div class="timestamp">00:27</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Entonces dame dos minuticos, por favor, y ya meto a Juanito en la línea.
+                        <div class="timestamp">00:37</div>
+                    </div>
+                </div>
+        
+
+                <div class="message right">
+                    <div class="message-header">Juanita (Cliente)</div>
+                    <div class="message-bubble cliente-bubble">
+                        Gracias.
+                        <div class="timestamp">00:41</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Otro (Otro)</div>
+                    <div class="message-bubble otro-bubble">
+                        Buenos días.
+                        <div class="timestamp">01:05</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        ¿Qué hubo, Juanito, con Alexia?
+                        <div class="timestamp">01:05</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        ¿Cómo estás?
+                        <div class="timestamp">01:07</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Juanito (Otro)</div>
+                    <div class="message-bubble otro-bubble">
+                        Hola, Alexia, muy bien.
+                        <div class="timestamp">01:08</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Juanito (Otro)</div>
+                    <div class="message-bubble otro-bubble">
+                        ¿Cómo vas?
+                        <div class="timestamp">01:09</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Todo muy bien, gracias, sí, señor.
+                        <div class="timestamp">01:10</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Pepita Perez (Asesor)</div>
+                    <div class="message-bubble asesor-bubble">
+                        Mira, voy a ponerte en conferencia con Juanita Palomino, que ya la tengo en la línea, para hacerlo del cierre de los dólares, ¿ok?
+                        <div class="timestamp">01:12</div>
+                    </div>
+                </div>
+        
+
+                <div class="message left">
+                    <div class="message-header">Juanito (Otro)</div>
+                    <div class="message-bubble otro-bubble">
+                        Perfecto. 
+                        <div class="timestamp">01:18</div>
+                    </div>
+                </div>
+        
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #DCF8C6;"></div>
+                    <span>Cliente</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #E3F2FD;"></div>
+                    <span>Asesor</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #FFF9C4;"></div>
+                    <span>Otro</span>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    
